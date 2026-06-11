@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareConnect — Healthcare Support & Volunteer Assistance</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-cross">✚</span>
+        <span class="logo-text">CareConnect</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#support-form">Get Support</a>
+        <a href="#chatbot">FAQ</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg-pattern" aria-hidden="true"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Community Healthcare Initiative</span>
+      <h1 class="hero-headline">
+        Real help,<br/>
+        <em>real people.</em>
+      </h1>
+      <p class="hero-sub">
+        CareConnect links patients in need with trained healthcare volunteers.
+        Submit your concern — our team reviews every request within 24 hours.
+      </p>
+      <a href="#support-form" class="btn-primary">Request Support</a>
+    </div>
+    <div class="hero-stats" aria-label="Impact stats">
+      <div class="stat">
+        <span class="stat-num">4,800+</span>
+        <span class="stat-label">Patients Supported</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">320</span>
+        <span class="stat-label">Active Volunteers</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">18</span>
+        <span class="stat-label">Districts Covered</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="how" id="about">
+    <div class="container">
+      <h2 class="section-title">How CareConnect works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon" aria-hidden="true">📋</div>
+          <h3>Submit your concern</h3>
+          <p>Fill in the support form with your symptoms and contact details.</p>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-icon" aria-hidden="true">🤖</div>
+          <h3>AI analysis</h3>
+          <p>Our symptom analyser flags priority level and suggests next steps.</p>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-icon" aria-hidden="true">🤝</div>
+          <h3>Volunteer follow-up</h3>
+          <p>A trained volunteer contacts you to arrange appropriate support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FORM + AI SUMMARY ── -->
+  <section class="form-section" id="support-form">
+    <div class="container two-col">
+
+      <!-- Form card -->
+      <div class="card form-card">
+        <h2 class="card-title">Healthcare Support Request</h2>
+        <p class="card-subtitle">All fields are required. Your data is kept confidential.</p>
+
+        <form id="healthForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Priya Sharma" autocomplete="name"/>
+              <span class="error-msg" id="err-fullName"></span>
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="number" id="age" name="age" min="1" max="120" placeholder="34"/>
+              <span class="error-msg" id="err-age"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" name="gender">
+                <option value="">Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Non-binary</option>
+                <option>Prefer not to say</option>
+              </select>
+              <span class="error-msg" id="err-gender"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" autocomplete="tel"/>
+              <span class="error-msg" id="err-phone"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="priya@example.com" autocomplete="email"/>
+            <span class="error-msg" id="err-email"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="healthConcern">Health Concern</label>
+            <input type="text" id="healthConcern" name="healthConcern" placeholder="e.g. Suspected viral infection"/>
+            <span class="error-msg" id="err-healthConcern"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="symptoms">Symptoms Description</label>
+            <textarea id="symptoms" name="symptoms" rows="4"
+              placeholder="e.g. I have had fever, headache and body pain for two days..."></textarea>
+            <span class="error-msg" id="err-symptoms"></span>
+          </div>
+
+          <div class="form-group">
+            <label>Urgency Level</label>
+            <div class="urgency-group" role="group" aria-label="Urgency level">
+              <label class="urgency-option urgency-low">
+                <input type="radio" name="urgency" value="Low"/>
+                <span>Low</span>
+              </label>
+              <label class="urgency-option urgency-medium">
+                <input type="radio" name="urgency" value="Medium"/>
+                <span>Medium</span>
+              </label>
+              <label class="urgency-option urgency-high">
+                <input type="radio" name="urgency" value="High"/>
+                <span>High</span>
+              </label>
+            </div>
+            <span class="error-msg" id="err-urgency"></span>
+          </div>
+
+          <button type="submit" class="btn-primary btn-full" id="submitBtn">
+            <span class="btn-text">Analyse & Submit Request</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+
+      <!-- AI Summary card -->
+      <div class="card ai-card" id="aiSummaryCard" aria-live="polite" hidden>
+        <div class="ai-header">
+          <span class="ai-badge">AI Analysis</span>
+          <h2 class="card-title">Support Summary</h2>
+        </div>
+
+        <div class="ai-body">
+          <div class="ai-row">
+            <span class="ai-label">Patient</span>
+            <span class="ai-value" id="ai-name">—</span>
+          </div>
+          <div class="ai-row">
+            <span class="ai-label">Health Concern</span>
+            <span class="ai-value" id="ai-concern">—</span>
+          </div>
+          <div class="ai-row">
+            <span class="ai-label">Symptoms Detected</span>
+            <div class="chip-list" id="ai-symptoms-chips"></div>
+          </div>
+          <div class="ai-row">
+            <span class="ai-label">Estimated Priority</span>
+            <span class="priority-badge" id="ai-priority">—</span>
+          </div>
+          <div class="ai-row">
+            <span class="ai-label">Suggested Next Step</span>
+            <span class="ai-value" id="ai-next-step">—</span>
+          </div>
+        </div>
+
+        <div class="ai-disclaimer">
+          ⚠️ This is not medical advice. CareConnect provides volunteer-based support coordination only.
+        </div>
+
+        <button class="btn-outline btn-full" id="resetBtn">Submit another request</button>
+      </div>
+
+      <!-- Placeholder shown before form submit -->
+      <div class="card ai-placeholder" id="aiPlaceholder">
+        <div class="placeholder-icon" aria-hidden="true">🩺</div>
+        <h3>AI Symptom Analyser</h3>
+        <p>Fill in the form and submit your request. Our AI will detect symptoms, estimate priority, and suggest next steps — instantly.</p>
+        <ul class="placeholder-features">
+          <li>✓ Keyword symptom detection</li>
+          <li>✓ Priority level assessment</li>
+          <li>✓ Volunteer action guidance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ CHATBOT ── -->
+  <section class="chatbot-section" id="chatbot">
+    <div class="container">
+      <h2 class="section-title">Healthcare FAQ Assistant</h2>
+      <p class="section-sub">Type your question or pick a suggestion below.</p>
+
+      <div class="card chatbot-card">
+        <div class="chat-window" id="chatWindow" aria-live="polite" aria-label="Chat messages">
+          <div class="chat-msg bot">
+            <div class="chat-avatar" aria-hidden="true">✚</div>
+            <div class="chat-bubble">Hi! I'm the CareConnect FAQ assistant. How can I help you today?</div>
+          </div>
+        </div>
+
+        <div class="chat-suggestions" id="chatSuggestions">
+          <button class="suggestion-chip" data-q="How can I get support?">How can I get support?</button>
+          <button class="suggestion-chip" data-q="Is this medical advice?">Is this medical advice?</button>
+          <button class="suggestion-chip" data-q="How do volunteers help?">How do volunteers help?</button>
+          <button class="suggestion-chip" data-q="Is my data safe?">Is my data safe?</button>
+          <button class="suggestion-chip" data-q="How long does a response take?">Response time?</button>
+        </div>
+
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="Ask a question…" autocomplete="off" aria-label="Your question"/>
+          <button id="chatSend" class="btn-send" aria-label="Send message">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-cross">✚</span>
+        <span class="logo-text">CareConnect</span>
+        <p>A community-driven healthcare support initiative connecting patients with trained volunteers.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#support-form">Request Support</a>
+        <a href="#chatbot">FAQ Chatbot</a>
+        <a href="#about">How It Works</a>
+      </div>
+      <div class="footer-disclaimer">
+        <h4>Disclaimer</h4>
+        <p>CareConnect is not a medical service. All information provided is for support coordination purposes only. In case of emergency, please call your local emergency services immediately.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 CareConnect NGO Initiative · Built for internship demonstration purposes</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
